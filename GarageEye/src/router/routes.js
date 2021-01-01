@@ -1,11 +1,17 @@
 
+ 
+
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
-      { path: 'wow', component: () => import('pages/Error404.vue') }
+      { path: '', component: () => import('../components/WelcomeScreen.vue') },
+      { path: 'login', component: () => import('../components/Login.vue') },
+      { path: 'welcomescreen', component: () => import('../components/WelcomeScreen.vue') },
+      { path: 'signup', component: () => import('../components/OnBoarding/SignUp.vue') },
+      { path: 'faceupload', component: () => import('../components/OnBoarding/FaceUpload.vue') },
+      { path: 'addlicenseplate', component: () => import('../components/OnBoarding/AddLicensePlate.vue') }
     ]
   },
 

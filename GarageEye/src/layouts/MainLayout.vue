@@ -1,11 +1,12 @@
-<template>
+<template >
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header v-if="false" elevated>
       <q-toolbar>
         <q-btn
           flat
           dense
           round
+          to="/login"
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
