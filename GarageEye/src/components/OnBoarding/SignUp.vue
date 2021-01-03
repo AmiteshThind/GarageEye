@@ -1,7 +1,7 @@
 <template>
 <q-page>
   <div>
-    <div class="row q-ma-lg">
+    <div class="row q-mt-xl q-ml-md">
       <div class="col">
         <q-btn outline round color="primary" to="/welcomescreen" exact icon="keyboard_backspace" />
       </div>

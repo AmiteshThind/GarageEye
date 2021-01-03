@@ -11,7 +11,9 @@ const routes = [
       { path: 'welcomescreen', component: () => import('../components/WelcomeScreen.vue') },
       { path: 'signup', component: () => import('../components/OnBoarding/SignUp.vue') },
       { path: 'faceupload', component: () => import('../components/OnBoarding/FaceUpload.vue') },
-      { path: 'addlicenseplate', component: () => import('../components/OnBoarding/AddLicensePlate.vue') }
+      { path: 'addlicenseplate', component: () => import('../components/OnBoarding/AddLicensePlate.vue') },
+      { path: 'dashboard', component: () => import('../components/Dashboard.vue') },
+      { path: 'mypackages', component: () => import('../components/MyPackages.vue') }
     ]
   },
 

@@ -1,7 +1,7 @@
 <template>
 <q-page>
   <div>
-    <div class="row q-ma-lg">
+    <div class="row q-mt-xl q-ml-md">
       <div class="col">
         <q-btn outline round color="primary" to="/welcomescreen" exact icon="keyboard_backspace" />
       </div>
@@ -45,7 +45,7 @@
 
     <div class="row text-center loginMargin">
       <div class="col">
-        <q-btn class="btn " unelevated color="primary" label="Login" />
+        <q-btn class="btn " to='/dashboard' unelevated color="primary" label="Login" />
       </div>
     </div>
     <div class="row">

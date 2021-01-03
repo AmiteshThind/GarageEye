@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div>
-      <div class="row q-ma-lg">
+      <div class="row q-mt-xl q-ml-md">
         <div class="col">
           <q-btn
             outline
@@ -41,7 +41,7 @@
             class="input rounded centerBlock"
             outlined
             v-model="text"
-            label="Password"
+            label="Enter License Plate Number"
             :dense="dense"
           />
         </div>

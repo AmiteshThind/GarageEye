@@ -1,23 +1,25 @@
 <template >
   <q-layout view="lHh Lpr lFf">
-    <q-header v-if="false" elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          to="/login"
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
+    <q-header >
+      
+      <q-footer class="q-mt-lg q-mb-md q-ml-xl q-mr-xl bg-transparent" >
+        <q-tabs
+        color="transparent"
+        v-model="tab"
+        narrow-indicator
+        dense
+        align="justify"
+        class="text-primary"
+        active-bg-color='transparent'
+        
+        indicator-color ='transparent'
+      >
+        <q-route-tab :ripple="false" to=/dashboard class="text-primary"  name="mails" icon="home" label="Home" />
+        <q-route-tab :ripple="false" to=/mypackages class="text-primary"  name="alarms" icon="inventory_2" label="My Packages" />
+        
+      </q-tabs>
+      </q-footer>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
     </q-header>
 
     <q-drawer
@@ -101,7 +103,8 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData
+      essentialLinks: linksData,
+      tab: 'mails'
     }
   }
 }

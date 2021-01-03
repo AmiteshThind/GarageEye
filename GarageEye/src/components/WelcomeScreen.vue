@@ -9,13 +9,13 @@
     <div class="row">
       <div class="col text-center q-mt-xl">
         <h3 class=" no-margin baloo  text-primary">
-            <div class="q-ma-md">WELCOME TO GarageEye</div></h3>
+            <div class="q-ma-md">Welcome To GarageEye</div></h3>
       </div>
     </div>
     <div class="row ">
       <div class="col no-margin text-center">
         <h5 class="baloo no-margin text-weight-light  text-secondary">
-          Some catchy ass line inserted here
+          Control and Monitor Your Garage Effortlessely
         </h5>
       </div>
     </div>
@@ -73,5 +73,6 @@ export default {};
     font-family: 'baloo'
 }
 
+ 
 
 </style>
