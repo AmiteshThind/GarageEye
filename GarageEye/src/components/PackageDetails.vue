@@ -1,6 +1,6 @@
 <template>
 <div class="row">
-  <q-card class="my-card q-ma-sm bg-grey-4" bordered flat>
+  <q-card class="my-card q-ma-sm bg-blue-grey-1" bordered flat>
       <q-card-section>
         <p>{{trackingNumber}}</p>
       </q-card-section>

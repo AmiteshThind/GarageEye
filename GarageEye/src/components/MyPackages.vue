@@ -1,11 +1,11 @@
 <template>
   <q-page>
-    <div class="row q-mt-xl text-center">
+    <div class="row q-pt-md text-center">
       <div class="col topMarginHeader">
-        <h4 class="no-margin text-primary">Package Tracking Numbers</h4>
+        <h5 class="no-margin text-primary">Package Tracking Numbers</h5>
       </div>
     </div>
-    <div class="q-mt-md">
+    <div class="q-pt-md">
       <div class="row text-center">
         <div class="col">
           <h7 class="no-margin text-secondary"
@@ -23,7 +23,7 @@
     </div>
 
     <div class="row">
-      <div class="col q-ma-xl">
+      <div class="col q-pa-xl">
         <q-input v-model="text" label="Add Tracking ID" outlined :dense="dense">
           <template v-slot:append>
             <q-btn dense color="primary" exact round icon="add" />
@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 .topMarginHeader {
-  margin-top: 10%;
+  padding-top: 10%;
 }
 .centerBlock {
   display: block;

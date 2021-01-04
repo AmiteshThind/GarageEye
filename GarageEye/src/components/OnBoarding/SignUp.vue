@@ -1,7 +1,7 @@
 <template>
 <q-page>
   <div>
-    <div class="row q-mt-xl q-ml-md">
+    <div class="row q-pt-xl q-pl-md">
       <div class="col">
         <q-btn outline round color="primary" to="/welcomescreen" exact icon="keyboard_backspace" />
       </div>
@@ -11,7 +11,7 @@
     <div class="inputs">
          <div class="row">
       <div class="col">
-        <h5 class="text-center ">Create An Account</h5>
+        <h5 class="text-center ">Sign Up</h5>
       </div>
     </div>
          <div class="row">
@@ -27,7 +27,7 @@
           />
         </div>
       </div>
-      <div class="row q-mt-lg">
+      <div class="row q-pt-lg">
         <div class="col ">
           <q-input
             bg-color ='accent'
@@ -40,7 +40,7 @@
           />
         </div>
       </div>
-      <div class="row q-mt-lg">
+      <div class="row q-pt-lg">
         <div class="col">
           <q-input
           bg-color='accent'
@@ -89,7 +89,7 @@ body {
 }
 
 .inputs {
-  margin-top: 10%;
+  padding-top: 10%;
 }
 
 .btn {
@@ -101,6 +101,6 @@ body {
 }
 
 .loginMargin {
-  margin-top: 35%;
+  padding-top: 15%;
 }
 </style>

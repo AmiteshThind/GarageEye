@@ -1,8 +1,8 @@
 <template >
   <q-layout view="lHh Lpr lFf">
-    <q-header >
+    <q-header v-if="true">
       
-      <q-footer class="q-mt-lg q-mb-md q-ml-xl q-mr-xl bg-transparent" >
+      <q-footer class="no-margin q-pt-sm q-pb-sm q-pl-xl q-pr-xl bg-white" >
         <q-tabs
         color="transparent"
         v-model="tab"
@@ -109,3 +109,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+ 
+</style>
