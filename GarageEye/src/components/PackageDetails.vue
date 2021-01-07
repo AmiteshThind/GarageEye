@@ -2,7 +2,7 @@
 <div class="row">
   <q-card class="my-card q-ma-sm bg-blue-grey-1" bordered flat>
       <q-card-section>
-        <p>{{trackingNumber}}</p>
+        <p>{{packageDetails.trackingNumber}}</p>
       </q-card-section>
     </q-card>
 </div>
@@ -10,9 +10,12 @@
 
 <script>
 export default {
+    props:['packageDetails'],
+ 
     data(){
         return{
-            trackingNumber:1234
+           
+            
         }
     }
 }

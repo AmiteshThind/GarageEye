@@ -1,6 +1,12 @@
 <template>
   <q-page>
+    <transition
+        appear
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+      >
     <div class="marginTop">
+       
       <div class="row centerImage">
         <div class="col">
           <q-img src="../assets/logo.png" spinner-color="primary" />
@@ -8,16 +14,23 @@
       </div>
       <div class="row">
         <div class="col text-center q-mt-xl">
-          <h3 class="no-margin baloo text-primary">
-            <div class="q-ma-md">Welcome To GarageEye</div>
-          </h3>
+          <div class="text-h3 sno-margin baloo text-primary">
+            <div class="q-ma-md">GarageEye</div>
+          </div>
+        </div>
+      </div>
+      <div class="row q-pt-sm">
+        <div class="col no-margin text-center">
+          <div class="baloo text-h6 no-margin text-weight-light text-secondary">
+            Control and Monitor  
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col no-margin text-center">
-          <h5 class="baloo no-margin text-weight-light text-secondary">
-            Control and Monitor Your Garage Effortlessely
-          </h5>
+          <div class="baloo text-h6 no-margin text-weight-light text-secondary">
+             Your Garage Effortlessely
+          </div>
         </div>
       </div>
       <div class="marginTop">
@@ -47,7 +60,9 @@
           </div>
         </div>
       </div>
+      
     </div>
+     </transition>
   </q-page>
 </template>
 

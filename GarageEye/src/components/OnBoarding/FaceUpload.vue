@@ -14,23 +14,25 @@
         </div>
       </div>
       <div class="marginTop">
-        <div class="row q-pa-lg">
+        <div class="row q-pa-md">
           <div class="col">
-            <h5 class="text-center no-margin">Upload An Image of Your Face</h5>
+            <div class="text-center text-h5 text-bold no-margin">
+              Upload An Image of Your Face
+            </div>
           </div>
         </div>
         <div class="row q-pl-xl q-pr-xl">
           <div class="col">
-            <h6 class="no-margin text-secondary text-center">
-              This will help us identify
-            </h6>
+            <div class="no-margin text-subtitle text-secondary text-center">
+              This will help GarageEye identify
+            </div>
           </div>
         </div>
         <div class="row q-pl-xl q-pr-xl">
           <div class="col">
-            <h6 class="no-margin text-secondary text-center">
-              who is opening the garage
-            </h6>
+            <div class="text-subtitle no-margin text-secondary text-center">
+              who is trying to open the garage
+            </div>
           </div>
         </div>
         <div class="inputs">
@@ -38,10 +40,12 @@
             <div class="col">
               <q-uploader
                 class="centerBlock uploadBox"
-                url="http://localhost:4444/upload"
                 color="secondary"
                 flat
                 bordered
+                ref="uploader"
+                :multiple="false"
+                @added="added"
               />
             </div>
           </div>
@@ -50,11 +54,12 @@
         <div class="row text-center loginMargin">
           <div class="col loginMargin">
             <q-btn
-              to="/addlicenseplate"
+              
               class="btn"
               unelevated
               color="primary"
               label="Next"
+              @click="uploadFile"
             />
           </div>
         </div>
@@ -67,7 +72,42 @@
 </template>
 
 <script>
-export default {};
+import { fireBase, fireBaseStorage } from "../../boot/firebase";
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState("auth", ["userSignUpDetails"]),
+  },
+  data() {
+    return {
+      file: undefined,
+    };
+  },
+
+  methods: {
+    uploadFile() {
+    this.$q.notify.setDefaults({
+    position: 'bottom',
+    timeout: 2000,
+    textColor: 'white',
+    color:'secondary',
+    actions: [{  color: 'white' }]
+})
+
+      if (this.file) {
+        const ref = "faces/" + this.userSignUpDetails.username;
+        fireBaseStorage.ref().child(ref).put(this.file);
+        this.$router.push('addlicenseplate');
+      }else {
+          this.$q.notify('Please Upload An Image');
+      }
+    },
+    added(file) {
+        console.log(file)
+      this.file = file[0];
+    },
+  },
+};
 </script>
 
 <style scoped>
