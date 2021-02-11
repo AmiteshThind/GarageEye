@@ -3,14 +3,16 @@ import {
   fireBaseAuth,
   fireBaseDatabase
 } from "../boot/firebase";
-import { Loading, LocalStorage, QSpinnerFacebook, uid } from "quasar";
+import { Loading, LocalStorage, QSpinnerFacebook, uid,date } from "quasar";
 const state = {
   loggedIn: false,
   garageState:'',  
+  dateGarageLastOpened:'',
   userDetails: {
     details: {
       licensePlate: "",
       username: ""
+      
     },
     packages: {}
   },
@@ -57,6 +59,10 @@ const mutations = {
   },
   updateGarageState(state,payload){
       state.garageState = payload; 
+  },
+
+  updateDateGarageLastOpened(state,payload){
+    state.dateGarageLastOpened = payload;
   },
 
   clearData(state) {
@@ -111,10 +117,13 @@ const actions = {
       .then(authUser => {
         let userId = fireBaseAuth.currentUser.uid;
         let newUserRef = fireBaseDatabase.ref("Users/" + userId);
+        let timeStamp = Date.now()
+        let formattedString = date.formatDate(timeStamp, 'YYYY-MM-DDTHH:mm')
         let userInfo = {
           details: {
             username: state.userSignUpDetails.username,
-            licensePlate: state.userSignUpDetails.licensePlate
+            licensePlate: state.userSignUpDetails.licensePlate,
+            dateTimeCreated:formattedString
           },
           packages: {}
         };
@@ -150,6 +159,7 @@ const actions = {
         LocalStorage.set("loggedIn", true); // if user leaves app and comes back it stores state on device (before app starts)
         dispatch("fbReadData");
         dispatch("fbReadGarageState");
+        dispatch("fbReaddateGarageLastOpened")
         this.$router.push("/dashboard").catch(err => {});
       } else {
         LocalStorage.set("loggedIn", false);
@@ -181,12 +191,30 @@ const actions = {
         commit("updateGarageState", data);
       });
   },
+    fbReaddateGarageLastOpened({commit}){
+    fireBaseDatabase
+      .ref("dateGarageLastOpened")
+      .on("value", dataSnapShot => {
+        //value means if any change to database then this listerner is triggered
+        let data = dataSnapShot.val();
+        console.log(data);
+        commit("updateDateGarageLastOpened", data);
+      });
+  },
   changeGarageState({commit},garageState){
      let garageStateRef = fireBaseDatabase.ref(
       "GarageState"
     );
+      let dateGarageLastOpened = fireBaseDatabase.ref(
+        "dateGarageLastOpened"
+      );
       garageStateRef.set(garageState);
      // commit('changeGarageState',garageState);
+     if(garageState == "open"){
+      let timeStamp = Date.now()
+      let formattedString = date.formatDate(timeStamp, 'MMM Do h:mm a');
+      dateGarageLastOpened.set(formattedString);
+     }
   }
 };
 

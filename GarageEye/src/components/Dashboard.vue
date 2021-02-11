@@ -48,7 +48,7 @@
         <q-card class="my-card bg-info text-black" style="height: 100%;width:100%">
           <q-card-section>
             <div class="text-h6  q-pb-lg">Last Opened</div>
-            <div class="text-subtitle text-center no-margin text-grey-9">2:40am April 24th</div>
+            <div class="text-subtitle text-center no-margin text-grey-9">{{dateGarageLastOpened}}</div>
           </q-card-section>
         </q-card>
       </div>
@@ -86,7 +86,7 @@ export default {
         }
     },
     computed: {
-        ...mapState('auth',['userDetails','garageState'])
+        ...mapState('auth',['userDetails','garageState','dateGarageLastOpened'])
     },
     methods: {
         ...mapActions('auth',['changeGarageState']),
